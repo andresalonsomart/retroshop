@@ -1,0 +1,32 @@
+<div style="background-color: #fafafa;
+margin: 1rem;
+padding: 1rem;
+border: 2px solid #ccc;
+text-align: center;
+margin-left: 10%;
+margin-right: 0;">
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Número de seguimiento</label>
+          <input id="f1_seguimiento" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce el número de seguimiento">
+          <small id="emailHelp" class="form-text text-muted">Serás redireccionado a la pagina del transportista.</small>
+        </div>
+        
+       
+        <button type="submit" onclick="seguimiento();" class="btn btn-primary">Submit</button>
+      </form>
+
+</div>
+
+<script>
+
+function seguimiento()
+{
+
+    var numero = document.getElementById('f1_seguimiento').value;
+    var url = 'https://www.correos.es/ss/Satellite/site/aplicacion-4000003383089-localiza_busca_encuentra/detalle_app-sidioma=es_ES?numero='+numero+'&mostrarResultadoForm=true';
+
+    window.open(url, '_blank');
+}
+
+</script>

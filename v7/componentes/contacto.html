@@ -1,0 +1,34 @@
+<div style="background-color: #fafafa;
+margin: 1rem;
+padding: 1rem;
+border: 2px solid #ccc;
+text-align: center;
+margin-left: 10%;
+margin-right: 0;">
+
+
+
+<form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Direccion de email</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="tudireccion@ejemplo.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Asunto</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Consulta general</option>
+        <option>Problemas con el envio</option>
+        <option>Problemas con el pago</option>
+        <option>Devoluciones</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">¿En que podemos ayudarte?</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <button type="submit" onclick="enviarEmail();" class="btn btn-primary">Enviar consulta</button>
+  </form>
+
+</div>
