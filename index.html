@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -59,10 +60,10 @@
     <div ng-include="'./componentes/buscador.html'"></div>
 
 
-
+ <!-- 
     
 
-    <div class="juegosPopulares" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPopulares.html'"></div>
+   
     
     <div class="juegosAccion" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosAccion.html'"></div>
     <div class="juegosDeportes" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosDeportes.html'"></div>
@@ -70,11 +71,17 @@
     <div class="juegosPs1" style="display: none; margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPs1.html'"></div>
 
 
+-->
+ <div class="juegosPopulares" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPopulares.html'"></div>
+
+ 
     <div class="carrito" style="display: none; margin-left: 1%; margin-right: 1%; width: 98%;" ng-include="'./componentes/cart.html'"></div>
     <div class="seguimiento" style="display: none; width: 90%;" ng-include="'./componentes/seguimiento.html'"></div>
-    <div class="contacto" style="display: none; width: 90%;" ng-include="'./componentes/contacto.html'"></div>
 
-    <div ng-include="'./componentes/footer.html'"></div>
+<div class="contacto" style="display: none; width: 90%;" ng-include="'./componentes/contacto.html'"></div>
+
+<div ng-include="'./componentes/footer.html'"></div>
+    
       <!-- <div ng-repeat="n in [] | range:4 "></div> -->
     
 
@@ -87,12 +94,12 @@
         
         app.controller('myCtrl', function($scope, $http) {
           
-          $http.get("data.php?id=1")
+          $http.get("./paginas/data.php?id=1")
           .then(function(response) {
             $scope.articulos = response.data;
           });
 
-          $http.get("data.php?id=2")
+          $http.get("./paginas/data.php?id=2")
           .then(function(response) {
             $scope.name = response.data;
           });

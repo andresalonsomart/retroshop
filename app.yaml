@@ -1,0 +1,28 @@
+#env: flex
+runtime: php72 # Replace with php73 to use the PHP 7.3 runtime
+
+handlers:
+# Serve a directory as a static resource.
+- url: /img/*
+  static_dir: img
+
+- url: /componentes
+  static_dir: componentes
+
+- url: /libreriasJs
+  static_dir: libreriasJs
+
+- url: /paginas
+  static_dir: paginas
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg|css|js|php))$
+  static_files: ./*
+  upload: .+\.(gif|png|jpg|css|js|php)$
+
+# Serve your app through a front controller at index.php or public/index.php.
+- url: /
+  static_files: index.html
+  upload: index.html
+
+

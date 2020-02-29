@@ -106,7 +106,7 @@ item:'<div class="card" style="width: 12rem; display:inline-block"><div class="r
 
 
 var Httpreq = new XMLHttpRequest(); 
-Httpreq.open("GET","data.php?id="+consulta,false);
+Httpreq.open("GET","paginas/consulta1.json",false);
 Httpreq.send(null);
 var values2 = Httpreq.responseText;   
 
