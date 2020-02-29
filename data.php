@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$conn = new mysqli("localhost", "admin", "BqTy3lwJukhkYLv4", "avoga");
+$conn = new mysqli("remotemysql.com", "aDZc1ZlGD8", "QFeaJEKj3w", "aDZc1ZlGD8");
 
 
 $limit = 9;
