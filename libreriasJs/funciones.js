@@ -1,25 +1,83 @@
+   
+   
+   var app = angular.module('myApp1', []);
+        
+        app.controller('myCtrl', function($scope, $http) {
+          
+          $http.get("./paginas/data.php?id=1")
+          .then(function(response) {
+            $scope.articulos = response.data;
+          });
+
+          $http.get("./paginas/data.php?id=2")
+          .then(function(response) {
+            $scope.name = response.data;
+          });
+
+          
+        });
+
+
+
+  app.filter('range', function() {
+  return function(input, total) {
+    total = parseInt(total);
+
+    for (var i=0; i<total; i++) {
+      input.push(i);
+    }
+
+    return input;
+  };
+
+});
+
+
+
+
+function buscar(palabra)
+{
+     juegosMostrar('Busqueda');
+}
+
+function reload()
+{
+    window.location.replace("./index.html");
+}
+
+
+function enviarEmail()
+{
+var to = "";
+var subjet = "";
+var mensaje = "";
+
+
+to = document.getElementById("email").value;
+subjet = document.getElementById("subjet").value;
+mensaje = document.getElementById("mensaje").value;
+
+var url = 'https://sage-passkey-269713.appspot.com/email.php?to='+to+'&mensaje='+mensaje+'&subjet='+subjet;
+
+
+jQuery.get( url, function( data ) {
+  $( "#botonEmail" ).html( data );
+ $('#botonEmail').prop('disabled', true);
+ 
+
+});
+
+}
+
+
 
 function juegosMostrar(tipo)
 {
 
     var consulta = 0;
 
-    if(tipo == 'Accion')
-    {
-        consulta = 3;
-    }
-    else if(tipo == 'Populares')
-    {
-        consulta=1
-    }
-    else if(tipo == 'Deportes')
-    {
-        consulta=4
-    }
-    else if(tipo == 'Ps1')
-    {
-        consulta=5
-    }
+        consulta = 1;
+
 
 
   var options = {
@@ -65,7 +123,7 @@ item:'<div class="card" style="width: 12rem; display:inline-block"><div class="r
 +'<div class="row">'
 
   +'<div class="col-md-4 product_img">'
-    +'<img style=\"width:100%; margin-bottom: 20px;\" class=\"imagen'+tipo+'Details\" src="http://img.bbystatic.com/BestBuy_US/images/products/5613/5613060_sd.jpg" class="img-responsive">'
+    +'<img style=\"width:100%; margin-bottom: 20px;\" class=\"imagen'+tipo+'Details\" src="#" class="img-responsive">'
 
     +'<p id="condicion2" class="condicion2_'+tipo+'"></p> '
 +'<p id="consola" class="consola2_'+tipo+'"></p> '
@@ -89,7 +147,13 @@ item:'<div class="card" style="width: 12rem; display:inline-block"><div class="r
 +'</div>'
 +'<div class="space-ten"></div>'
 +'<div class="btn-ground">'
-+'<button style="width:100%;     background-color: #61d631;" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>'
+
++'<button type="button" class="btn btn-default btn-sm">'
++'         <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart'
++'        </button>'
+
+
++'<button style="width:100%;     background-color: #3ba980;" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Añadir al carrito</button>'
 +'</div>'
 +'</div>'
 +'</div>'
@@ -103,11 +167,76 @@ item:'<div class="card" style="width: 12rem; display:inline-block"><div class="r
 };
 
 
+var url = '';
 
+
+if(tipo == 'Populares'){
+    url = 'https://sage-passkey-269713.appspot.com/data.php?id=1';
+}
+
+if(tipo == 'Deportes'){
+
+    url = 'https://sage-passkey-269713.appspot.com/data.php?id=4';
+}
+
+if(tipo == 'Accion'){
+
+    url = 'https://sage-passkey-269713.appspot.com/data.php?id=3';
+}
+
+if(tipo == 'Ps1'){
+
+    url = 'https://sage-passkey-269713.appspot.com/data.php?id=5';
+}
+
+if(tipo == 'Busqueda'){
+
+var palabra = "";
+
+    palabra = document.getElementsByClassName('search')[0].value;
+
+    
+
+    url = 'https://sage-passkey-269713.appspot.com/data.php?id=6&busqueda='+palabra;
+
+    var cards = document.getElementsByClassName("card");
+
+
+    var i;
+    for (i = 0; i < cards.length; i++) 
+    {
+        $(cards[i]).html(" ");
+        $(cards[i]).css("display", "none");
+    }
+
+    var cards = document.getElementsByClassName("portada");
+    var i;
+
+    var jb = document.getElementById('juegosBusqueda');
+   
+var jp = document.getElementById('juegosPs1');
+
+;
+
+    for (i = 1; i < cards.length; i++) 
+    {
+        $(cards[i]).html(" ");
+        $(cards[i]).css("display", "none");
+    }
+  
+   $(jb).css("display", "block")
+   $(jp).css("display", "none")
+
+}
+
+
+var values2 = [];
+  
+  
 
 var Httpreq = new XMLHttpRequest(); 
-Httpreq.open("GET","paginas/consulta1.json",false);
-Httpreq.send(null);
+Httpreq.open("GET",url,false);
+Httpreq.send();
 var values2 = Httpreq.responseText;   
 
 
@@ -124,9 +253,9 @@ var comisionTienda = 10;
 var costes = costeEnvio+costeEmpaque+comisionVenta;
 
 
+
 $.each(JSON.parse(values2), function( index, value ) {
   //console.log( index + ": " + value.imagen );
-
 
 
   var x = document.getElementsByClassName("imagen"+tipo);
@@ -163,7 +292,6 @@ $.each(JSON.parse(values2), function( index, value ) {
 
 
     $(botonCustom1[index]).attr("data-target", "#product_view_"+value.id);
-
     $(botonCustom2[index]).attr("id", "product_view_"+value.id);
 
     $(precio[index]).attr("id", "precio_"+value.id);
@@ -173,7 +301,7 @@ $.each(JSON.parse(values2), function( index, value ) {
     $(id2[index]).attr("id", "id2_"+value.id);
     $(descripcion2[index]).attr("id", "descripcion2_"+value.id);
 
-
+        
 
 
     $("#precio_"+value.id).html('Precio: '+(pvp.toFixed(2))+'€');
@@ -182,8 +310,6 @@ $.each(JSON.parse(values2), function( index, value ) {
     $("#nombre2_"+value.id).html(value.nombre);
     $("#id2_"+value.id).html(value.id);
     $("#descripcion2_"+value.id).html(value.descripcion);
-
-
 
 
 

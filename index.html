@@ -12,9 +12,7 @@
 
 
 
-  <link rel="stylesheet" href="./componentes/buscador.css" >
   <link rel="stylesheet" href="./componentes/footer.css" >
-  <link rel="stylesheet" href="./componentes/productDetails.css" >
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
 
@@ -33,20 +31,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <!--fin bootstramp-->
 
-<!--mia-->
+
+
+ <!--mia-->
 <script src="./libreriasJs/funciones.js"></script>
 <!--/mia-->
 
 
-<style type="text/css">
-  .product_view .modal-dialog{max-width: 800px; width: 100%;}
-.pre-cost{text-decoration: line-through; color: #a5a5a5;}
-.space-ten{padding: 10px 0;}    
-</style>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js" type="text/javascript"></script>
 <script src="./libreriasJs/list.js" ></script>
-<script src="./componentes/buscador.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 
@@ -55,30 +48,16 @@
 <body>
 
 
-  <div ng-app="myApp" ng-controller="myCtrl">
+
+  <div ng-app="myApp1" ng-controller="myCtrl">
 
     <div ng-include="'./componentes/buscador.html'"></div>
 
+<div class="busqueda portada" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosBusqueda.html'"></div>
 
- <!-- 
-    
-
-   
-    
-    <div class="juegosAccion" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosAccion.html'"></div>
-    <div class="juegosDeportes" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosDeportes.html'"></div>
-    
-    <div class="juegosPs1" style="display: none; margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPs1.html'"></div>
-
-
--->
- <div class="juegosPopulares" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPopulares.html'"></div>
-
- 
-    <div class="carrito" style="display: none; margin-left: 1%; margin-right: 1%; width: 98%;" ng-include="'./componentes/cart.html'"></div>
-    <div class="seguimiento" style="display: none; width: 90%;" ng-include="'./componentes/seguimiento.html'"></div>
-
-<div class="contacto" style="display: none; width: 90%;" ng-include="'./componentes/contacto.html'"></div>
+<div class="juegosPopulares portada" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosPopulares.html'"></div>
+<div class="juegosAccion portada" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosAccion.html'"></div>
+<div class="juegosDeportes portada" style=" margin-left: 1%; margin-right: 1%;" ng-include="'./componentes/juegosDeportes.html'"></div>
 
 <div ng-include="'./componentes/footer.html'"></div>
     
@@ -89,40 +68,6 @@
 
 
  
-    <script>
-        var app = angular.module('myApp', []);
-        
-        app.controller('myCtrl', function($scope, $http) {
-          
-          $http.get("./paginas/data.php?id=1")
-          .then(function(response) {
-            $scope.articulos = response.data;
-          });
 
-          $http.get("./paginas/data.php?id=2")
-          .then(function(response) {
-            $scope.name = response.data;
-          });
-
-          
-        });
-
-
-
-  app.filter('range', function() {
-  return function(input, total) {
-    total = parseInt(total);
-
-    for (var i=0; i<total; i++) {
-      input.push(i);
-    }
-
-    return input;
-  };
-
-});
-        </script>
-
- 
 </body>
 </html>

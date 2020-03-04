@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" onclick="mostrarPortada();" href="#">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" onclick="reload();" href="../index.html">Inicio <span class="sr-only">(current)</span></a>
             </li>
            
             <li class="nav-item dropdown">
@@ -16,8 +16,7 @@
                 Juegos
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" onclick="mostrarJuegosPs1()" href="#">Juegos PS1</a>
-                <a class="dropdown-item" href="#">Juegos Xbox One</a>
+                <a class="dropdown-item" href="../juegosPs1.html">Juegos PS1</a>
                 <!--
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Consolas</a>
@@ -26,30 +25,19 @@
               </div>
             </li>
                      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Accesorios
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Play Station 1</a>
-                <a class="dropdown-item" href="#">Xbox One</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Consolas</a>
-            </li>  
 
-              <a class="nav-link" onclick="mostrarSeguimiento();" href="#">Seguimiento</a>
+
+              <a class="nav-link"  href="../seguimiento.html">Seguimiento</a>
             </li><li class="nav-item">
-              <a class="nav-link" onclick="mostrarContacto();" href="#">Contacto</a>
+              <a class="nav-link" href="../contacto.html">Contacto</a>
             </li>      
           </li><li class="nav-item">
-            <a class="nav-link" onclick="mostrarCarrito();" href="#">Carrito</a>
+            <a class="nav-link"href="../carrito.html">Carrito</a>
           </li>   
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2 search" type="search" placeholder="Buscador" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="juegosMostrar('Busqueda');" type="submit">Buscar</button>
           </form>
         </div>
       </nav>
@@ -62,275 +50,4 @@
 
 -->
     
-
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
-
-  <script>
-
-    function mostrarJuegosPs1()
-    {
-     
-      var x = document.getElementsByClassName("juegosPs1");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'inline-block';
-      }
-
-      var x = document.getElementsByClassName("juegosPopulares");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosDeportes");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-      var x = document.getElementsByClassName("juegosAccion");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("seguimiento");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("contacto");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("carrito");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-    }
-
-    function mostrarPortada()
-    {
-
-      var x = document.getElementsByClassName("juegosPopulares");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'inline-block';
-      }
-
-      var x = document.getElementsByClassName("juegosDeportes");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'inline-block';
-      }
-      var x = document.getElementsByClassName("juegosAccion");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'inline-block';
-      }
-
-      var x = document.getElementsByClassName("seguimiento");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosPs1");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("contacto");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("carrito");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-    }
-
-    function mostrarSeguimiento()
-    {
-      
-      var x = document.getElementsByClassName("juegosPopulares");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosDeportes");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-      var x = document.getElementsByClassName("juegosAccion");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-      var x = document.getElementsByClassName("juegosPs1");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("contacto");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("seguimiento");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'inline-block';
-      }
-      
-      var x = document.getElementsByClassName("carrito");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-    }
-
-    function mostrarContacto()
-    {
-      var x = document.getElementsByClassName("juegosPopulares");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosDeportes");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-      var x = document.getElementsByClassName("juegosAccion");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosPs1");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("seguimiento");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("contacto");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'inline-block';
-      }
-
-      var x = document.getElementsByClassName("carrito");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-    }
-
-
-    function mostrarCarrito()
-    {  
-      var x = document.getElementsByClassName("juegosPopulares");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosDeportes");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-        x[i].style.display = 'none';
-      }
-      var x = document.getElementsByClassName("juegosAccion");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("juegosPs1");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("seguimiento");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      
-
-      var x = document.getElementsByClassName("contacto");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'none';
-      }
-
-      var x = document.getElementsByClassName("carrito");
-      var i;
-      for (i = 0; i < x.length; i++) 
-      {
-          x[i].style.display = 'inline-block';
-      }
-    }
-
-
-  </script>
- 
-
-
 

@@ -11,11 +11,11 @@ margin-right: 0;">
 <form>
     <div class="form-group">
       <label for="exampleFormControlInput1">Direccion de email</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="tudireccion@ejemplo.com">
+      <input type="email" class="form-control" id="email" placeholder="tudireccion@ejemplo.com">
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Asunto</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select class="form-control" id="subjet">
         <option>Consulta general</option>
         <option>Problemas con el envio</option>
         <option>Problemas con el pago</option>
@@ -25,10 +25,13 @@ margin-right: 0;">
     
     <div class="form-group">
       <label for="exampleFormControlTextarea1">¿En que podemos ayudarte?</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="mensaje" rows="3"></textarea>
     </div>
 
-    <button type="submit" onclick="enviarEmail();" class="btn btn-primary">Enviar consulta</button>
+    <button type="submit" id="botonEmail" onclick="enviarEmail();" class="btn btn-primary">Enviar consulta</button>
   </form>
+
+    <div id="mensajeEmail">
+    </div>
 
 </div>

@@ -1,28 +1,58 @@
-#env: flex
-runtime: php72 # Replace with php73 to use the PHP 7.3 runtime
+runtime: php55
+api_version: 1
 
 handlers:
-# Serve a directory as a static resource.
-- url: /img/*
+
+- url: /
+  script: index.html
+
+- url: /email.php
+  script: email.php
+
+- url: /data.php
+  script: data.php
+
+
+- url: /contacto.html
+  script: contacto.html
+
+- url: /index.html
+  script: index.html
+
+- url: /seguimiento.html
+  script: seguimiento.html
+
+- url: /carrito.html
+  script: carrito.html
+
+- url: /juegosPs1.html
+  script: juegosPs1.html
+
+- url: /juegosBusqueda.html
+  script: juegosBusqueda.html
+
+- url: /img/
   static_dir: img
 
-- url: /componentes
+- url: /componentes/
   static_dir: componentes
 
-- url: /libreriasJs
+- url: /libreriasJs/
   static_dir: libreriasJs
 
-- url: /paginas
+- url: /paginas/
   static_dir: paginas
 
-# Serve images as static resources.
-- url: /(.+\.(gif|png|jpg|css|js|php))$
-  static_files: ./*
-  upload: .+\.(gif|png|jpg|css|js|php)$
+- url: /jsones/
+  static_dir: jsones
 
-# Serve your app through a front controller at index.php or public/index.php.
-- url: /
-  static_files: index.html
-  upload: index.html
+- url: /funcionesPhp/
+  static_dir: funcionesPhp
 
+- url: /(.+\.php)$
+  script: \1
+  
+- url: /(.*\.(gif|png|jpg|php|css|js))$
+  static_files: /\1
+  upload: /.*\.(gif|png|jpg|php|css|js)$
 
